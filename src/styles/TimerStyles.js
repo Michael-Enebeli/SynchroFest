@@ -13,7 +13,6 @@ export const TimerContainer = styled.div`
   padding: 10px 10px 0 10px;
   color: white;
   background: transparent;
-  border-radius: 5px;
   width: fit-content;
   margin: 10px auto;
   animation: ${animateTimer} 2s infinite;

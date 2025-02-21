@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (
         typeof window.updatePerformances === "function" &&
         performancesData &&
-        imagesCount >= 12
+        imagesCount >= 20
       ) {
         const content = document.getElementById("root");
         content.style.opacity = 1;

@@ -44,6 +44,11 @@ export const CloseButton = styled.button`
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+
+  
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 export const CheckoutButton = styled.button`

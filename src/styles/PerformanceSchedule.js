@@ -7,9 +7,58 @@ export const ScheduleContainer = styled.div`
 
 export const SearchContainer = styled.div`
   position: relative;
-  width: 92%;
+  width: 100%;
   max-width: 350px;
-  margin: 5px 0px 15px 15px;
+  margin: 5px 0px 15px 0;
+`;
+
+export const TimeFrameContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+`;
+
+export const TimeFrameButton = styled.button`
+  padding: 7px;
+  font-size: 0.9rem;
+  border: 2px solid rgb(27, 152, 224);
+  background-color: transparent;
+  color: rgb(27, 152, 224);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    background-color: #ff9800;
+    border: 2px solid #ff9800;
+    color: #fff;
+  }
+
+  &.active {
+    background-color: #FF007F;
+    border: 2px solid  #FF007F;
+    color: white;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  @media (min-width: 720px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -44,12 +93,12 @@ export const SearchIcon = styled.i`
 export const PerformanceCard = styled.div`
   font-family: 'Exo', sans-serif;
   color: #FFD700; 
-  padding: 15px;
-  maxheight: 500px;
-  max-height: 100vh;
+  padding: 10px;
+  max-height: 700px;
+  width: 270px;
   border-radius: 8px;
   text-align: center;
-  flex: 0 0 90%;
+  flex: 0 0 100%;
   scroll-snap-align: center;
   transition: transform 0.3s ease-in-out;
   background: rgba(255, 255, 255, 0.1);
@@ -57,23 +106,25 @@ export const PerformanceCard = styled.div`
 
   @media (min-width: 1024px) {
     flex: initial;
+    width: auto;
   }
 `;
 
 export const ArtistImage = styled.img`
   width: 100%;
   max-width: 700px;
-  height: auto;
+  height: 240px;
   max-height: 250px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
 `;
 
 export const DescriptionText = styled.p`
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin: 10px 0 15px 0;
-  padding-bottom: 20px;
-  height: 20px;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  height: 50px;
 
 `;
 
@@ -129,7 +180,9 @@ export const CloseButton = styled.span`
   position: absolute;
   top: 0;
   right: 15px;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  border: none;
+  padding: 1px;
 
   @media (min-width: 1024px) {
     cursor: pointer;
@@ -210,20 +263,12 @@ export const PerformancesWrapper = styled.div`
   padding-bottom: 10px;
   -webkit-overflow-scrolling: touch;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-gap: 20px;
   
-
-  @media (min-width: 720px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    overflow: visible;
-  }
-
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
     overflow: visible;
   }

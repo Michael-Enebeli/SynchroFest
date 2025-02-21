@@ -11,11 +11,10 @@ This project will not function properly in a local environment because it relies
 Viewers are advised to use the **live demo** link above or [click here](https://synchrofest.vercel.app) for the best experience.
 # Project Overview
 ## 🎶 Event Listing
-* Events are displayed in order from the earliest to the latest.
 * Each event card includes an artist's image, a brief description, and buttons to View Details or Book Now.
 * Event details (artist name, image and genre) is fetched from Spotify API once every hour while others (date, time, venue, event title, and price) were predefined and stored in local storage
-*  Clicking "View Details" opens a popup with event information, including the artist, genre, and ticket price.
-* Clicking "Book Now" opens a seating chart for users to select their seats.
+* Clicking "View Details" opens a popup with event information, including the artist, genre, and ticket price, while clicking "Book Now" opens a seating chart for users to select their seats.
+* Users can view upcoming events in the next 3, 7 or 30 days and also filter based on selected price range.
 ## 🎟️ Seat Selection
 * Users can select up to 5 seats per booking to prevent bulk reservations.
 * Available seats are green, while selected seats turn blue.
@@ -47,7 +46,7 @@ Viewers are advised to use the **live demo** link above or [click here](https://
 
 ## 🚀 Challenges & Solutions
 ### 1️⃣ Handling Environment Variables on Vercel
-* **Problem:** Using `import.meta.env` for environment variables (API keys) were not accessible in the public folder in production stage despite it being accessible in development atage.
+* **Problem:** Using `import.meta.env` for environment variables (API keys) were not accessible in the public folder in production stage despite it being accessible in development stage.
 * **Solution:** Used `window.ENV` instead to load environment variables globally on the window so it can be accessed.
 
 ### 2️⃣ Performance Optimization
