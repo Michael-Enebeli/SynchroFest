@@ -49,7 +49,7 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     const performances = JSON.parse(localStorage.getItem("performances")) || [];
-    const descriptions = performances.slice(0, 12).map(event => event.description);
+    const descriptions = performances.slice(0, 20).map(event => event.description);
     if (descriptions.length === 0) return;
 
     const showToastRecursively = (index) => {

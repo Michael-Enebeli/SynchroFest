@@ -21,7 +21,7 @@ if (lastFetch && now - lastFetch < 3600000) {
   };
 
   const fetchUniqueArtists = async (token) => {
-    const genres = ["Pop", "Hip-hop", "Rap", "Afrobeat", "Electronic", "Jazz", "Hip-hop", "R&B", "Rap", "Raggae", "Pop", "Rap"];
+    const genres = ["Pop", "Hip-hop", "Rap", "Afrobeat", "Electronic", "Jazz", "R&B", "Raggae"];
     let artistPool = [];
 
     for (let genre of genres) {

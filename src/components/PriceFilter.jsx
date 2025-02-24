@@ -10,7 +10,6 @@ import {
   } from "../styles/FilterStyles";
 import {
   ScheduleContainer,
-  SearchContainer,
   PerformancesWrapper,
   PerformanceCard,
   ArtistImage,
@@ -21,12 +20,11 @@ import {
   ModalContent,
   CloseButton,
   DescriptionText,
-  SearchWrapper,
 } from "../styles/PerformanceSchedule";
 
 
 const PriceFilter = () => {
-  const [priceFilter, setPriceFilter] = useState(100); // Default: $100
+  const [priceFilter, setPriceFilter] = useState(100); 
   const [performances, setPerformances] = useState([]);
   const [selectedPerformance, setSelectedPerformance] = useState(null);
   const [showSeatingChart, setShowSeatingChart] = useState(false);
@@ -65,7 +63,6 @@ const PriceFilter = () => {
     </FilterSelect>
   </FilterContainer>
 </FilterWrapper>
-
       <PerformancesWrapper>
         {filteredPerformances.length === 0 ? (
           <p style={{ color: "white", textAlign: "center", marginTop: "20px", fontSize: "1.2rem" }}>
