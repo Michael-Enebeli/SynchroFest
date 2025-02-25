@@ -84,11 +84,15 @@ const predefinedSchedule = [
   { date: addDays(today, 1), time: "19:45", venue: "Cosmic Arena", price: "Free", event: "Neon Night", description: "{artist} lights up {venue} with {genre} sounds!" },
 ];
  
-  const generatePerformanceSchedule = async () => {
+const generatePerformanceSchedule = async () => {
+  try {
     const token = await getSpotifyToken();
-    const artists = await fetchUniqueArtists(token); 
+    const artists = await fetchUniqueArtists(token);
+
+    if (!artists.length) throw new Error("No artists found");
+
     const performances = artists.map((artist, index) => {
-    const { date, time, venue, event, description, price } = predefinedSchedule[index];
+      const { date, time, venue, event, description, price } = predefinedSchedule[index];
 
       return {
         ...artist,
@@ -96,15 +100,18 @@ const predefinedSchedule = [
         time,
         venue,
         event,
-        price, 
-        description: description.replace("{artist}", artist.artist).replace("{genre}", artist.genre).replace("{venue}", venue), // Replace placeholders
+        price,
+        description: description.replace("{artist}", artist.artist).replace("{genre}", artist.genre).replace("{venue}", venue),
       };
     });
 
     localStorage.setItem("performances", JSON.stringify(performances));
-    localStorage.setItem("lastFetch", now.toString()); 
+    localStorage.setItem("lastFetch", now.toString());
     waitForUpdatePerformances();
-  };
+  } catch (error) {
+    alert("No upcoming event at the moment.\nTry again later");
+  }
+};
   generatePerformanceSchedule();
 }
 
