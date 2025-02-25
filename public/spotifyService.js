@@ -7,7 +7,7 @@ if (lastFetch && now - lastFetch < 3600000) {
       waitForUpdatePerformances();
 } else {
   const getSpotifyToken = async () => {
-    const response = await fetch("https://accounts.spotify.com/api/token", {
+  const response = await fetch("https://accounts.spotify.com/api/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -104,12 +104,18 @@ const generatePerformanceSchedule = async () => {
         description: description.replace("{artist}", artist.artist).replace("{genre}", artist.genre).replace("{venue}", venue),
       };
     });
-
     localStorage.setItem("performances", JSON.stringify(performances));
     localStorage.setItem("lastFetch", now.toString());
     waitForUpdatePerformances();
   } catch (error) {
-    alert("No upcoming event at the moment.\nTry again later");
+    const waitForFallback = () => {
+      if (typeof window.useFallbackData === "function") {
+        window.useFallbackData();
+      } else {
+        setTimeout(waitForFallback, 100);
+      }
+    };
+    waitForFallback();
   }
 };
   generatePerformanceSchedule();

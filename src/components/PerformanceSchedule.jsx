@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import useSwipe from "../utils/useSwipe";
 import SeatingChart from "../components/SeatingChart";
 import {
   ScheduleContainer,
@@ -37,8 +36,6 @@ const PerformanceSchedule = () => {
   const [selectedEventId, setSelectedEventId] = useState(null);
   const [timeFrame, setTimeFrame] = useState("all");
   const inputRef = useRef(null);
-
-  const { containerRef, isTouchDevice, handleTouchStart, handleTouchMove, handleTouchEnd } = useSwipe();
 
   const updatePerformances = () => {
     const storedData = localStorage.getItem("performances");
@@ -132,12 +129,7 @@ const PerformanceSchedule = () => {
         </TimeFrameContainer>
       </SearchWrapper>
 
-      <PerformancesWrapper
-        ref={containerRef}
-        onTouchStart={isTouchDevice ? handleTouchStart : null}
-        onTouchMove={isTouchDevice ? handleTouchMove : null}
-        onTouchEnd={isTouchDevice ? handleTouchEnd : null}
-      >
+      <PerformancesWrapper>
         {filterByTimeFrame(performances)
           .filter((p) => p.artist.toLowerCase().includes(search.toLowerCase())).length === 0 ? (
           <p style={{ color: "white", textAlign: "center", minWidth: "130px", marginTop: "20px", fontSize: "1.2rem" }}>
