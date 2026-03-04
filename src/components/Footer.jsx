@@ -19,7 +19,7 @@ const Footer = () => {
           <i className="fab fa-github"></i>
         </a>
       </div>
-      <span>Developed by  <a href="https://michaelenebeli.com.ng" target="_blank" rel="noopener noreferrer"> Michael Enebeli </a></span>
+      <span>Developed by  <a href="https://michaelly.vercel.app" target="_blank" rel="noopener noreferrer"> Michael Enebeli </a></span>
     </footer>
   );
 };
